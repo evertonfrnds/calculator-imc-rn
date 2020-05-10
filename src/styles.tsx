@@ -42,7 +42,15 @@ export const CardContainer = styled.View`
 `;
 export const CardTitle = styled.Text`
     color: white;
-    margin-top: 10px;
 `
+export const CardValue = styled.Text`
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+`
+export const CardSlider = styled.Slider`
+    width: 90%;
+    height: 20px;
+`;
 
 

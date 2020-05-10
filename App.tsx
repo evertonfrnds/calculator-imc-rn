@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar} from 'react-native'
+import {StatusBar, Slider} from 'react-native'
 import { 
   Container,
   Title, 
@@ -7,8 +7,11 @@ import {
   ContainerFlex, 
   Button, 
   TextButton,
-  CardTitle
+  CardTitle,
+  CardValue,
+  CardSlider
 } from "./src/styles";
+
 import Icon from 'react-native-vector-icons/Ionicons';
 export default function App() {
   return (
@@ -17,13 +20,13 @@ export default function App() {
       <Title>Calculadora IMC</Title>
       <ContainerFlex>
         <CardContainer>
-          <Icon name='md-male' color='#fff' size={60}/>
+          <Icon name='md-male' color='#fff' size={60} style={{marginBottom: 10}}/>
           <CardTitle>
             HOMEM
           </CardTitle>
         </CardContainer>
         <CardContainer>
-          <Icon name='md-female' color='#fff' size={60}/>
+          <Icon name='md-female' color='#fff' size={60} style={{marginBottom: 10}}/>
           <CardTitle>
             MULHER
           </CardTitle>
@@ -31,7 +34,18 @@ export default function App() {
       </ContainerFlex>
       <ContainerFlex>
         <CardContainer>
-          
+          <CardTitle>
+            ALTURA
+          </CardTitle>
+          <CardValue>
+            164
+          </CardValue>
+          <CardSlider 
+            minimumValue={0}
+            maximumValue={1}
+            minimumTrackTintColor="#7289da"
+            maximumTrackTintColor="#000000"
+            thumbTintColor='#fff'/>
         </CardContainer>
       </ContainerFlex>
       <ContainerFlex>
