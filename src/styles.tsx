@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 
+interface LabelProps{
+    bottom: string;
+}
+
 //CONTAINER
 export const Container = styled.View`
     background-color: #2c2f33;
@@ -7,6 +11,7 @@ export const Container = styled.View`
     align-items: center;
     padding-top: 10px;
 `;
+
 export const ContainerFlex = styled.View`
     flex-direction: row;
     flex: 1;
@@ -40,17 +45,26 @@ export const CardContainer = styled.View`
     justify-content: center;
     align-items: center;
 `;
-export const CardTitle = styled.Text`
+export const CardLabel = styled.Text`
     color: white;
 `
-export const CardValue = styled.Text`
+
+export const CardValue = styled.View`
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+    align-items: baseline;
+`;
+
+export const CardValueText = styled.Text`
     color: white;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 38px;
 `
 export const CardSlider = styled.Slider`
     width: 90%;
-    height: 20px;
+    height: 30px;
 `;
+
 
 

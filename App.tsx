@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar, Slider} from 'react-native'
+import {StatusBar} from 'react-native'
 import { 
   Container,
   Title, 
@@ -7,9 +7,10 @@ import {
   ContainerFlex, 
   Button, 
   TextButton,
-  CardTitle,
+  CardLabel,
   CardValue,
-  CardSlider
+  CardSlider,
+  CardValueText
 } from "./src/styles";
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -21,24 +22,29 @@ export default function App() {
       <ContainerFlex>
         <CardContainer>
           <Icon name='md-male' color='#fff' size={60} style={{marginBottom: 10}}/>
-          <CardTitle>
+          <CardLabel>
             HOMEM
-          </CardTitle>
+          </CardLabel>
         </CardContainer>
         <CardContainer>
           <Icon name='md-female' color='#fff' size={60} style={{marginBottom: 10}}/>
-          <CardTitle>
+          <CardLabel>
             MULHER
-          </CardTitle>
+          </CardLabel>
         </CardContainer>
       </ContainerFlex>
       <ContainerFlex>
         <CardContainer>
-          <CardTitle>
+          <CardLabel>
             ALTURA
-          </CardTitle>
+          </CardLabel>
           <CardValue>
-            164
+            <CardValueText>
+              180
+            </CardValueText>
+            <CardLabel>
+              cm
+            </CardLabel>
           </CardValue>
           <CardSlider 
             minimumValue={0}
