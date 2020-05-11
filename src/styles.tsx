@@ -1,9 +1,5 @@
 import styled from 'styled-components/native';
 
-interface LabelProps{
-    bottom: string;
-}
-
 //CONTAINER
 export const Container = styled.View`
     background-color: #2c2f33;
@@ -24,7 +20,7 @@ export const Title = styled.Text`
     color: white;
     font-size: 18px;
 `;
-export const Button = styled.TouchableOpacity`
+export const ButtonSubmit = styled.TouchableOpacity`
     width: 100%;
     align-items: center;
     padding: 15px;
@@ -65,6 +61,19 @@ export const CardSlider = styled.Slider`
     width: 90%;
     height: 30px;
 `;
-
-
+export const GroupButton = styled.View`
+    flex-direction: row;
+`;
+export const Button = styled.TouchableOpacity.attrs({
+    activeOpacity: 0.4,
+})`
+    background-color: #686574;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 5px;
+`;
 
