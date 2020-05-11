@@ -16,12 +16,27 @@ import {
   Button,
 } from "./src/styles";
 
+import Modal from './src/components/Modal'
+
 import Icon from 'react-native-vector-icons/Ionicons';
 export default function App() {
-  const [sexo, setSexo] = useState<string | null>(null);
-  const [altura, setAltura] = useState<number>(150);
-  const [peso, setPeso] = useState<number>(60);
+  const [sexo, setSexo] = useState<string>('');
+  const [altura, setAltura] = useState<number>(180);
+  const [peso, setPeso] = useState<number>(83);
   const [idade, setIdade] = useState<number>(21);
+
+  const [imc, setImc] = useState<number | null>(null)
+  const [visible, setVisible]= useState<boolean>(false);
+
+  function handleVisible(){
+    setVisible(!visible);
+  }
+  function calcIMC(){
+    const alt = altura/100;
+    const imc = peso/(alt*alt);
+    setImc(imc);
+    handleVisible();
+  }
   return (
     <Container>
       <StatusBar backgroundColor='#2c2f33'/>
@@ -112,9 +127,12 @@ export default function App() {
           </GroupButton>
         </CardContainer>
       </ContainerFlex>
-      <ButtonSubmit>
+      <ButtonSubmit
+        onPress={calcIMC}
+      >
         <TextButton>Calcular</TextButton>
       </ButtonSubmit>
+      <Modal visible={visible} handleModalVisible={handleVisible} imc={imc}/>
     </Container>
   );
 }
