@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StatusBar} from 'react-native'
 import { 
   Container,
@@ -10,30 +10,41 @@ import {
   CardLabel,
   CardValue,
   CardSlider,
+  CardContainerToggle,
   CardValueText,
   GroupButton,
-  Button
+  Button,
 } from "./src/styles";
 
 import Icon from 'react-native-vector-icons/Ionicons';
 export default function App() {
+  const [sexo, setSexo] = useState<string | null>(null);
+  const [altura, setAltura] = useState<number>(150);
+  const [peso, setPeso] = useState<number>(60);
+  const [idade, setIdade] = useState<number>(21);
   return (
     <Container>
       <StatusBar backgroundColor='#2c2f33'/>
       <Title>Calculadora IMC</Title>
       <ContainerFlex>
-        <CardContainer>
+        <CardContainerToggle
+          onPress={()=>setSexo('male')} 
+          active={sexo=='male'?true:false}
+        >
           <Icon name='md-male' color='#fff' size={60} style={{marginBottom: 10}}/>
           <CardLabel>
             HOMEM
           </CardLabel>
-        </CardContainer>
-        <CardContainer>
+        </CardContainerToggle>
+        <CardContainerToggle
+          onPress={()=>setSexo('female')}
+          active={sexo=='female'?true:false}
+        >
           <Icon name='md-female' color='#fff' size={60} style={{marginBottom: 10}}/>
           <CardLabel>
             MULHER
           </CardLabel>
-        </CardContainer>
+        </CardContainerToggle>
       </ContainerFlex>
       <ContainerFlex>
         <CardContainer>
@@ -42,7 +53,7 @@ export default function App() {
           </CardLabel>
           <CardValue>
             <CardValueText>
-              180
+              {altura}
             </CardValueText>
             <CardLabel>
               cm
@@ -50,11 +61,13 @@ export default function App() {
           </CardValue>
           <CardSlider 
             minimumValue={0}
-            maximumValue={250}
+            maximumValue={230}
             minimumTrackTintColor="#7289da"
             maximumTrackTintColor="#000000"
             thumbTintColor='#fff'
-            value={50}/>
+            step={1}
+            value={altura}
+            onValueChange={(value)=>setAltura(value)}/>
         </CardContainer>
       </ContainerFlex>
       <ContainerFlex>
@@ -63,13 +76,17 @@ export default function App() {
             PESO
           </CardLabel>
           <CardValueText>
-            83
+            {peso}
           </CardValueText>
           <GroupButton>
-            <Button>
+            <Button
+              onPress={()=>setPeso(peso-1)}
+            >
               <Icon name='md-remove' color='white' size={25}/>
             </Button>
-            <Button>
+            <Button
+              onPress={()=>setPeso(peso+1)}
+            >
               <Icon name='md-add' color='white' size={25}/>
             </Button>
           </GroupButton>
@@ -79,13 +96,17 @@ export default function App() {
             IDADE
           </CardLabel>
           <CardValueText>
-            21
+            {idade}
           </CardValueText>
           <GroupButton>
-            <Button>
+            <Button
+              onPress={()=>setIdade(idade-1)}
+            >
               <Icon name='md-remove' color='white' size={25}/>
             </Button>
-            <Button>
+            <Button
+              onPress={()=>setIdade(idade+1)}
+            >
               <Icon name='md-add' color='white' size={25}/>
             </Button>
           </GroupButton>

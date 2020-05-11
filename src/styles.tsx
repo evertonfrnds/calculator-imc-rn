@@ -1,5 +1,8 @@
 import styled from 'styled-components/native';
 
+interface CardContainerProps{
+    active: boolean;
+}
 //CONTAINER
 export const Container = styled.View`
     background-color: #2c2f33;
@@ -10,6 +13,7 @@ export const Container = styled.View`
 
 export const ContainerFlex = styled.View`
     flex-direction: row;
+    width:100%;
     flex: 1;
     margin: 0 5px;
     padding: 5px;
@@ -33,6 +37,16 @@ export const TextButton = styled.Text`
     font-size: 18px;
 `
 //CARD
+export const CardContainerToggle = styled.TouchableOpacity.attrs({
+    activeOpacity: 0.5
+})`
+    flex: 1;
+    background-color: ${(p: CardContainerProps)=>p.active?'#686574':'#474A53'};
+    margin: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+`;
 export const CardContainer = styled.View`
     flex: 1;
     background-color: #474A53;
@@ -41,6 +55,7 @@ export const CardContainer = styled.View`
     justify-content: center;
     align-items: center;
 `;
+
 export const CardLabel = styled.Text`
     color: white;
 `
