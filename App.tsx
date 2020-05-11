@@ -25,7 +25,7 @@ export default function App() {
   const [peso, setPeso] = useState<number>(83);
   const [idade, setIdade] = useState<number>(21);
 
-  const [imc, setImc] = useState<number | null>(null)
+  const [imc, setImc] = useState<number>(0);
   const [visible, setVisible]= useState<boolean>(false);
 
   function handleVisible(){
@@ -34,7 +34,7 @@ export default function App() {
   function calcIMC(){
     const alt = altura/100;
     const imc = peso/(alt*alt);
-    setImc(imc);
+    setImc(Number(imc.toFixed(2)));
     handleVisible();
   }
   return (
